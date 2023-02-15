@@ -2,8 +2,8 @@ import pandas as pd
 import numpy as np
 import json
 
-caminho_movies = "../data/movies.csv"
-caminho_ratings = "../data/ratings.csv"
+caminho_movies = "data/movies.csv"
+caminho_ratings = "data/ratings.csv"
 
 class recomendation():
     def __init__(self, caminho_movies = caminho_movies, caminho_ratings = caminho_ratings):
