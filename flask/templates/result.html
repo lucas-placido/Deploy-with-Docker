@@ -1,9 +1,14 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Filme Recomendado</title>
     </head>
     <body>
         <h1>Filmes Recomendados para o usuário {{ user_id }}:</h1>
-        <p>{{ movie_name }}</p>
+        <ul>
+            {% for key, value in lista_movies.items() %}
+            <li> {{ key + 1 }}: {{ value }} </li>
+            {% endfor %}
+        </ul>
     </body>
 </html>

@@ -31,7 +31,7 @@ def index():
 
     recomendacao = model.recomendation(user_id)
 
-    return render_template("result.html", user_id=user_id, movie_name=recomendacao)
+    return render_template("result.html", user_id=user_id, lista_movies=recomendacao)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
