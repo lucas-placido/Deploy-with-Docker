@@ -41,7 +41,7 @@ class recomendation():
         info = info.set_index("all").drop(id1, axis = 0)
         return info.head(k_closest)
 
-    def recomendation(self, id1, subset = None, k_closest = 10): # KNN
+    def recomendation(self, id1, subset = None, k_closest = 10, recomendacoes = 10): # KNN
 
         closest = self.closer(id1, subset = subset, k_closest = k_closest)
         closest_users = closest.index 
@@ -49,10 +49,10 @@ class recomendation():
 
         recommends = closest_rating.groupby("movieId").mean()[["rating"]]
         recommends = recommends.sort_values("rating", ascending=False)
-        recommends = recommends.join(self.movies)
-        final = recommends.head(10)
-        final = {id:titulo for id, titulo in enumerate(final.title)}
-        return json.dumps(final)
+        recommends = recommends.merge(self.movies, left_on=recommends.index, right_on=self.movies.movieId).set_index("movieId").drop("key_0", axis = 1)
+        final = recommends.head(recomendacoes)
+        final = {id:str(titulo) for id, titulo in enumerate(final.title)}
+        return final
 
-# if __name__ == "__main__":
-#     recomendation()
+if __name__ == "__main__":
+    recomendation()
