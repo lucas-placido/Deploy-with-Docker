@@ -15,5 +15,5 @@ ENV FLASK_APP=app.py
 EXPOSE 5000
 
 
-CMD ["python", "./flask/app.py"]
+CMD ["python", "./my_app/app.py"]
 

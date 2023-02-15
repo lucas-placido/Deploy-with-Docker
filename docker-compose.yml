@@ -1,0 +1,5 @@
+version: '3.8'
+services:
+  image: flask
+  mem_limit: 5g
+  
