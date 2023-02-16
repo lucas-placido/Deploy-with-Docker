@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 # Lista de IDs de usuários
 model = recomendation()
-user_ids = model.ratings.rating.values
+user_ids = model.ratings.userId.values
 
 # Lista de IDs de filmes
 movie_ids = model.movies.movieId.values 
