@@ -1,5 +1,7 @@
 version: '3.8'
 services:
-  image: flask
-  mem_limit: 5g
-  
+  meu-app:
+    image: flask
+    ports:
+      - "5000:5000"
+    mem_limit: 5g
